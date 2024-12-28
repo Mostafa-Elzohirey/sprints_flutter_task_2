@@ -1,16 +1,11 @@
 # sprints_flutter_task_2
 
-A new Flutter project.
+"create a simplified version of a shopping app interface using Flutter.
 
-## Getting Started
+## Screen components
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+this project has four parts
+1. app bar displaying project title
+2. a text "Our products" followed by a page view that has a group of images that are displayed
+3. a grid view that has 2 rows that displays products images and name with an option to add them to your cart and displays a snackbar to confirm the item is added to cart
+4. a list view builder that displays a list of offers 

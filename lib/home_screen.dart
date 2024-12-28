@@ -75,35 +75,35 @@ class HomeScreen extends StatelessWidget {
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2),
                   children: [
-                    hotOffersCard(
+                    productCard(
                         name: "head Phones",
                         imageUrl: image1Source,
                         context: context),
-                    hotOffersCard(
+                    productCard(
                         name: "banana",
                         imageUrl: image2Source,
                         context: context),
-                    hotOffersCard(
+                    productCard(
                         name: "computer set",
                         imageUrl: image3Source,
                         context: context),
-                    hotOffersCard(
+                    productCard(
                         name: "plant",
                         imageUrl: image4Source,
                         context: context),
-                    hotOffersCard(
+                    productCard(
                         name: "avocado",
                         imageUrl: image5Source,
                         context: context),
-                    hotOffersCard(
+                    productCard(
                         name: "sign 1",
                         imageUrl: image6Source,
                         context: context),
-                    hotOffersCard(
+                    productCard(
                         name: "sign 2",
                         imageUrl: image7Source,
                         context: context),
-                    hotOffersCard(
+                    productCard(
                         name: "banana",
                         imageUrl: image1Source,
                         context: context),
@@ -122,33 +122,7 @@ class HomeScreen extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemCount: listItems.length,
                   itemBuilder: (context, index) {
-                    return Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10)),
-                      height: 70,
-                      width: 150,
-                      child: Expanded(
-                        flex: 2,
-                        child: Card(
-                          elevation: 1,
-                          child: Column(
-                            children: [
-                              Image.network(listItems[index]),
-                              SizedBox(
-                                height: 35,
-                              ),
-                              Text(
-                                "offer ${index + 1}",
-                                style: TextStyle(
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    );
+                    return hotOffersCard(index: index);
                   },
                 ),
               ),
@@ -159,7 +133,37 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget hotOffersCard(
+  Widget hotOffersCard({required int index}){
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10)),
+      height: 70,
+      width: 150,
+      child: Expanded(
+        flex: 1,
+        child: Card(
+          elevation: 1,
+          child: Column(
+            children: [
+              Image.network(listItems[index]),
+              SizedBox(
+                height: 35,
+              ),
+              Text(
+                "offer ${index + 1}",
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget productCard(
       {required String name, required String imageUrl, required context}) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
