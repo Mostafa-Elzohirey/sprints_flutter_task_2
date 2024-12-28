@@ -33,131 +33,117 @@ class HomeScreen extends StatelessWidget {
         title: Text("Shopping App"),
       ),
       body: SingleChildScrollView(
-        child: Expanded(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 20,
+        child: Column(
+          children: [
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              "Our Products",
+              style: TextStyle(
+                fontSize: 25,
               ),
-              Text(
-                "Our Products",
-                style: TextStyle(
-                  fontSize: 25,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SizedBox(
-                  height: 300,
-                  child: PageView(
-                    children: [
-                      Image.network(image1Source),
-                      Image.network(image2Source),
-                      Image.network(image3Source),
-                      Image.network(image4Source),
-                      Image.network(image5Source),
-                      Image.network(image6Source),
-                      Image.network(image7Source),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                height: 600,
-                child: GridView(
-                  scrollDirection: Axis.horizontal,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                height: 300,
+                child: PageView(
                   children: [
-                    productCard(
-                        name: "head Phones",
-                        imageUrl: image1Source,
-                        context: context),
-                    productCard(
-                        name: "banana",
-                        imageUrl: image2Source,
-                        context: context),
-                    productCard(
-                        name: "computer set",
-                        imageUrl: image3Source,
-                        context: context),
-                    productCard(
-                        name: "plant",
-                        imageUrl: image4Source,
-                        context: context),
-                    productCard(
-                        name: "avocado",
-                        imageUrl: image5Source,
-                        context: context),
-                    productCard(
-                        name: "sign 1",
-                        imageUrl: image6Source,
-                        context: context),
-                    productCard(
-                        name: "sign 2",
-                        imageUrl: image7Source,
-                        context: context),
-                    productCard(
-                        name: "banana",
-                        imageUrl: image1Source,
-                        context: context),
+                    Image.network(image1Source),
+                    Image.network(image2Source),
+                    Image.network(image3Source),
+                    Image.network(image4Source),
+                    Image.network(image5Source),
+                    Image.network(image6Source),
+                    Image.network(image7Source),
                   ],
                 ),
               ),
-              Text(
-                "Hot Offers",
-                style: TextStyle(
-                  fontSize: 25,
-                ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: 600,
+              child: GridView(
+                scrollDirection: Axis.horizontal,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2),
+                children: [
+                  productCard(
+                      name: "head Phones",
+                      imageUrl: image1Source,
+                      context: context),
+                  productCard(
+                      name: "banana", imageUrl: image2Source, context: context),
+                  productCard(
+                      name: "computer set",
+                      imageUrl: image3Source,
+                      context: context),
+                  productCard(
+                      name: "plant", imageUrl: image4Source, context: context),
+                  productCard(
+                      name: "avocado",
+                      imageUrl: image5Source,
+                      context: context),
+                  productCard(
+                      name: "sign 1", imageUrl: image6Source, context: context),
+                  productCard(
+                      name: "sign 2", imageUrl: image7Source, context: context),
+                  productCard(
+                      name: "banana", imageUrl: image1Source, context: context),
+                ],
               ),
-              SizedBox(
-                height: 250,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: listItems.length,
-                  itemBuilder: (context, index) {
-                    return hotOffersCard(index: index);
-                  },
-                ),
+            ),
+            Text(
+              "Hot Offers",
+              style: TextStyle(
+                fontSize: 25,
               ),
-            ],
-          ),
+            ),
+            SizedBox(
+              height: 250,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: listItems.length,
+                itemBuilder: (context, index) {
+                  return hotOffersCard(index: index);
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 
-  Widget hotOffersCard({required int index}){
+  Widget hotOffersCard({required int index}) {
     return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10)),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
       height: 70,
       width: 150,
-      child: Expanded(
-        flex: 1,
-        child: Card(
-          elevation: 1,
-          child: Column(
-            children: [
-              Image.network(listItems[index]),
-              SizedBox(
-                height: 35,
-              ),
-              Text(
+      child: Card(
+        elevation: 1,
+        child: Column(
+          children: [
+            Expanded(child: Image.network(listItems[index]),),
+            SizedBox(
+              height: 35,
+            ),
+            Expanded(
+              child: Text(
                 "offer ${index + 1}",
                 style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );
@@ -167,16 +153,20 @@ class HomeScreen extends StatelessWidget {
       {required String name, required String imageUrl, required context}) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
-      child: SizedBox(
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+        ),
         height: 100,
         width: double.infinity,
         child: Card(
           elevation: 0,
           child: Column(
             children: [
-              Image.network(
-                imageUrl,
-                scale: 0.2,
+              Expanded(
+                child: Image.network(
+                  imageUrl,
+                ),
               ),
               Text(name),
               IconButton(
